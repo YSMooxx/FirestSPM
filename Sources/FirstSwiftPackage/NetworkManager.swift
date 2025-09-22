@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-actor NetworkManager {
+public actor NetworkManager {
     public static let shared = NetworkManager()
     
     private init() {}
