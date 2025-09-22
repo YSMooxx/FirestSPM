@@ -8,8 +8,8 @@
 import Foundation
 import Alamofire
 
-public class NetworkManager {
-    @MainActor public static let shared = NetworkManager()
+actor NetworkManager {
+    public static let shared = NetworkManager()
     
     private init() {}
     
