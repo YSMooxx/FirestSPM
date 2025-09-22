@@ -13,14 +13,14 @@ public actor NetworkManager {
     
     private init() {}
     
-    public func fetchData(from url: String) async throws -> Data {
+    public func fetchData(from url: String,suc:@escaping @Sendable (_ data:Data) -> (),fail:@escaping @Sendable (_ error:Error) -> ()) async throws -> Data {
         try await withCheckedThrowingContinuation { continuation in
             AF.request(url).responseData { response in
                 switch response.result {
                 case .success(let data):
-                    continuation.resume(returning: data)
+                    suc(data)
                 case .failure(let error):
-                    continuation.resume(throwing: error)
+                    fail(error)
                 }
             }
         }
