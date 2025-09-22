@@ -5,6 +5,12 @@ import PackageDescription
 
 let package = Package(
     name: "FirstSwiftPackage",
+    platforms: [
+        .iOS(.v15),       // 最低支持 iOS 15
+        .macOS(.v12),     // 最低支持 macOS 12
+        .tvOS(.v15),
+        .watchOS(.v8)
+    ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
